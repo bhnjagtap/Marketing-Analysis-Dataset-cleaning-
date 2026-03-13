@@ -61,7 +61,7 @@ Once the dataset was prepared, an interactive dashboard was built using **Micros
 
 ## Dashboard Preview
 
-![Marketing Campaign Dashboard](Screenshot 2026-03-13 130340.png)
+![Marketing Campaign Dashboard](dashbord.png)
 
 ---
 
