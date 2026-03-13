@@ -1,146 +1,176 @@
-# Marketing Campaign Data Cleaning (Python)
+# Marketing Campaign Data Cleaning & Performance Analysis
 
-## Overview
-This project focuses on cleaning and preparing a messy marketing campaign dataset using Python.  
-The dataset initially contained multiple real-world data quality issues such as inconsistent formatting, missing values, incorrect data types, currency formatting problems, categorical typos, and logical inconsistencies.
+## Project Overview
 
-The goal of this project is to transform raw, unstructured marketing data into a clean and analysis-ready dataset using data cleaning techniques in Python.
+Marketing teams run multiple campaigns across different platforms such as Facebook, Google Ads, Instagram, and TikTok. However, raw marketing data is often messy and inconsistent, making it difficult to evaluate campaign performance and make data-driven decisions.
 
-The project was developed using **Google Colab** and the **Pandas** library.
+This project demonstrates how **raw marketing campaign data can be cleaned, analyzed, and transformed into actionable insights** using Python and Power BI.
+
+The goal was to simulate a real-world analytics workflow:
+1. Clean messy marketing data
+2. Analyze campaign performance
+3. Build a dashboard to support business decisions
 
 ---
 
-## Dataset Issues Identified
-The dataset contained several common data quality problems:
+# Business Problem
 
-- Inconsistent column headers
-- Currency formatting in numeric fields
-- Null and missing values
-- Categorical typos
-- Mixed boolean representations
+Marketing teams need answers to key questions:
+
+- Which marketing channel performs best?
+- Where should the marketing budget be allocated?
+- Which campaigns generate the most engagement?
+- Is higher marketing spend actually driving more clicks?
+
+However, the dataset contained several data quality issues that prevented proper analysis.
+
+---
+
+# Data Cleaning (Python)
+
+The raw dataset contained common real-world problems such as:
+
+- Missing values
+- Inconsistent text formatting
+- Currency values mixed with text
 - Incorrect date formats
-- Logical inconsistencies in data
-- Duplicate columns
-- Outliers in numerical fields
-- Unstructured strings requiring feature extraction
+- Logical inconsistencies in metrics
+- Duplicate or redundant information
+- Outliers in numerical columns
+
+Using **Python and Pandas**, the dataset was cleaned and standardized.
+
+### Cleaning Steps
+
+- Standardized column names
+- Handled missing values
+- Converted spend values to numeric format
+- Fixed inconsistent marketing channel names
+- Converted date columns into proper datetime format
+- Detected and corrected logical inconsistencies
+- Removed or handled outliers
+- Extracted features from campaign names
+
+After cleaning, the dataset became structured and ready for analysis.
 
 ---
 
-## Data Cleaning Steps
+# Data Analysis & Dashboard (Power BI)
 
-### 1. Header Cleaning
-Standardized column names by:
-- Removing extra spaces
-- Converting to lowercase
-- Replacing spaces with underscores
+Once the dataset was prepared, an interactive dashboard was built using **Microsoft Power BI** to analyze marketing campaign performance.
 
-### 2. Currency Standardization
-The `spend` column contained values with currency symbols and text formatting.  
-These were cleaned by removing non-numeric characters and converting the column to numeric format.
+## Dashboard Preview
 
-### 3. Fixing Categorical Typos
-Several values in the `channel` column were inconsistent or misspelled.  
-A mapping dictionary was used to standardize them.
-
-Example corrections:
-- Facebok → Facebook
-- Tik_Tok → TikTok
-- Insta_gram → Instagram
-- Gogle → Google Ads
-- Email → E-mail
-
-### 4. Handling Mixed Boolean Values
-The `active` column contained mixed boolean representations such as:
-- Yes / No
-- Y / N
-- 1 / 0
-
-These were mapped into proper `True` and `False` boolean values.
-
-### 5. Date Parsing
-Date columns were converted into proper datetime format using Pandas.
-
-Columns cleaned:
-- `start_date`
-- `end_date`
-
-Invalid dates were handled using coercion.
-
-### 6. Logical Integrity Checks
-Two logical issues were verified:
-
-**Clicks vs Impressions**
-- Clicks should never exceed impressions
-
-**Campaign Timeline**
-- Campaign end dates must occur after start dates
-
-### 7. Duplicate Column Handling
-Duplicate columns were detected and removed from the dataset.
-
-### 8. Outlier Detection
-Outliers in the `spend` column were detected using the **Interquartile Range (IQR)** method and handled using winsorization techniques.
-
-### 9. Feature Extraction
-Structured features were extracted from text fields.
-
-Example:
-`campaign_name` was parsed to extract a new feature called:
-
-- `campaign_type`
-
-using regular expressions.
+![Marketing Campaign Dashboard](dashboard.png)
 
 ---
 
-## Technologies Used
+# Key Metrics Used
 
-- Python
-- Pandas
-- NumPy
-- Google Colab
+The analysis focuses on important marketing performance indicators:
+
+- Total Marketing Spend
+- Total Clicks
+- Click Through Rate (CTR)
+- Cost Per Click (CPC)
+- Conversion Rate
 
 ---
 
-## Project Structure
+# Dashboard Analysis
 
-```
-marketing-data-cleaning/
+The dashboard provides insights through multiple perspectives.
+
+### Channel Performance
+- Total Spend by Channel
+- Total Clicks by Channel
+- Conversion Rate by Channel
+
+### Campaign Analysis
+- Top performing campaigns by clicks
+- Campaign performance comparison
+
+### Marketing Efficiency
+- Relationship between marketing spend and clicks
+
+### Time Trend
+- Monthly marketing performance trend
+
+---
+
+# Key Insights
+
+The analysis revealed several important insights:
+
+**1. TikTok received the highest marketing spend**
+- Indicates heavy investment in this platform.
+
+**2. Facebook generated the highest number of clicks**
+- Suggests strong audience engagement.
+
+**3. Google Ads showed the highest conversion rate**
+- Potentially the most efficient channel for conversions.
+
+**4. Launch campaigns drove the highest engagement**
+- These campaigns outperformed others in click generation.
+
+**5. Marketing spend and clicks show a positive relationship**
+- Higher investment generally leads to increased engagement.
+
+---
+
+# Business Outcome
+
+By transforming raw marketing data into an analytical dashboard, this project helps answer important business questions:
+
+- Which marketing channels perform best?
+- How effective are marketing campaigns?
+- Where should marketing budgets be allocated?
+- What trends exist across marketing performance over time?
+
+This demonstrates how **data analysts move beyond data cleaning to generate insights that support business decisions.**
+
+---
+
+# Technologies Used
+
+Python  
+Pandas  
+NumPy  
+Google Colab  
+Microsoft Power BI  
+
+---
+
+# Project Structure
+
+marketing-campaign-analysis/
 │
-├── marketing_campaign_data_messy.csv
-├── data_cleaning_marketing.ipynb
+├── data_cleaning_notebook.ipynb
+├── cleaned_marketing_dataset.csv
+├── marketing_dashboard.pbix
+├── dashboard.png
 └── README.md
-```
+
 
 ---
 
-## Key Learning Outcomes
+# Key Takeaway
 
-This project demonstrates practical data cleaning skills including:
+Data analysts do not just clean data.
 
-- Handling messy real-world datasets
-- Data type conversion
-- Feature engineering
-- Data validation and integrity checks
-- Outlier detection
-- Text parsing using regex
-- Preparing data for analysis
+They transform raw data into insights that help businesses make better decisions.
 
 ---
 
-## Future Improvements
-
-Possible next steps include:
-
-- Exploratory Data Analysis (EDA)
-- Marketing performance dashboards
-- Campaign performance analysis
-- Visualization using Power BI or Python
-
----
-
-## Author
+# Author
 
 Bhargav Jagtap
 
-Aspiring Data Analyst with interests in data analytics, machine learning, and business intelligence.
+Aspiring Data Analyst focused on:
+- Data Analytics
+- Business Intelligence
+- Data Visualization
+
+Real Business Questions Answered
+
