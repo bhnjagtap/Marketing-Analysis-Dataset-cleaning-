@@ -1,4 +1,4 @@
-# Marketing Campaign Data Cleaning & Performance Analysis
+# Marketing Campaign Performance Analysis
 
 ## Project Overview
 
